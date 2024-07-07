@@ -1,2 +1,2 @@
 # CodingExercise
-Practice coding to solving problems
+Practice coding to solve problems
