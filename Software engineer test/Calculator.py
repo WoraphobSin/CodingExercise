@@ -30,17 +30,16 @@ class Calculator:
         # print(self.recives)
         quantitly = list(self.recives)
         # print(quantitly)
-        print("Do you have a member card?\nIf you have a member card you will get 10% discount on total\nyes or no")
-        pair = 0
-        for y in range(0,len(quantitly)):
-            if quantitly[y] == (202 or 505 or 707):
-                pair = int(float(self.recives[quantitly[y]])/2)
+        print("Do you have a member card?\nIf you have a member card you will get 10% discount on total\nyes or no")               
         if "yes" == str(input()):
             print("Your order are")
             for z in range(0,len(quantitly)):
                 # print(f"{self.product[quantitly[z]]["Set"]}\t Quantity {self.recives[quantitly[z]]}\t Price {self.product[quantitly[z]]["Price"]}")
-                print("- " + self.product[quantitly[z]]["Set"] + "\tQauntity "+ str(self.recives[quantitly[z]]) + "\tPrice "+ str(self.product[quantitly[z]]["Price"])+"\tTotal "\
-                    +str(self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]))
+                if quantitly[z] == (202 or 505 or 707):
+                    pass
+                else:
+                    print("- " + self.product[quantitly[z]]["Set"] + "\tQauntity "+ str(self.recives[quantitly[z]]) + "\tPrice "+ str(self.product[quantitly[z]]["Price"])+"\tTotal "\
+                        +str(self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]))
             total = 0
             for z in range(0,len(quantitly)):
                 total = total + self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]
