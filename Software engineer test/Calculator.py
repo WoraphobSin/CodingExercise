@@ -24,31 +24,47 @@ class Calculator:
                     print("How many do you want?")
                     b = int(input())
                     self.recives[a]=b   
-            print("Do you want to add another set?\nyes or no")
+            print("Do you want to add another set?\nyes or no?")
             if "no" == str(input()):
                 break
-        # print(self.recives)
+        print(self.recives)
         quantitly = list(self.recives)
-        # print(quantitly)
-        print("Do you have a member card?\nIf you have a member card you will get 10% discount on total\nyes or no")               
+        calTotal = self.recives.copy()
+        print(quantitly)
+        print("Do you have a member card?\nIf you have a member card you will get 10% discount on total !\nyes or no?")               
         if "yes" == str(input()):
             print("Your orders are")
             for z in range(0,len(quantitly)):
-                # print(f"{self.product[quantitly[z]]["Set"]}\t Quantity {self.recives[quantitly[z]]}\t Price {self.product[quantitly[z]]["Price"]}")
-                if quantitly[z] == (202 or 505 or 707):
+                if quantitly[z] == 202 or 505 or 707:
                     if self.recives[quantitly[z]]%2 == 0:
                         print("- " + self.product[quantitly[z]]["Set"] + "\tQauntity "+ str(self.recives[quantitly[z]]) + "\tPrice "+ str(self.product[quantitly[z]]["Price"])+"\tTotal "\
                         +str(0.95*self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]))
+                        calTotal.update({quantitly[z]:0.95*self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]})
+                        # calTotal[quantitly[z]] = 0.95*self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]
                     else:
-                        print("- " + self.product[quantitly[z]]["Set"] + "\tQauntity "+ str(self.recives[quantitly[z]]) + "\tPrice "+ str(self.product[quantitly[z]]["Price"])+"\tTotal "\
-                        +str(0.95*(self.recives[quantitly[z]]-1)*self.product[quantitly[z]]["Price"])+self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"])
+                        if self.recives[quantitly[z]] > 1 :
+                            print("- " + self.product[quantitly[z]]["Set"] + "\tQauntity "+ str(self.recives[quantitly[z]]) + "\tPrice "+ str(self.product[quantitly[z]]["Price"])+"\tTotal "\
+                            +str((0.95*(self.recives[quantitly[z]]-1)*self.product[quantitly[z]]["Price"])+self.product[quantitly[z]]["Price"]))
+                        else:
+                            print("- " + self.product[quantitly[z]]["Set"] + "\tQauntity "+ str(self.recives[quantitly[z]]) + "\tPrice "+ str(self.product[quantitly[z]]["Price"])+"\tTotal "\
+                            +str(((self.recives[quantitly[z]])*self.product[quantitly[z]]["Price"])))
+                        
+                        calTotal.update({quantitly[z]:(0.95*(self.recives[quantitly[z]]-1)*self.product[quantitly[z]]["Price"])+self.product[quantitly[z]]["Price"]})
+                        # calTotal[quantitly[z]] = (0.95*(self.recives[quantitly[z]]-1)*self.product[quantitly[z]]["Price"])+self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]
                 else:
                     print("- " + self.product[quantitly[z]]["Set"] + "\tQauntity "+ str(self.recives[quantitly[z]]) + "\tPrice "+ str(self.product[quantitly[z]]["Price"])+"\tTotal "\
-                        +str(self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]))
+                    +str(self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]))
+                    calTotal.update({quantitly[z]:self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]})
+                    # calTotal[quantitly[z]] = self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]
+                    
             total = 0
             for z in range(0,len(quantitly)):
-                total = total + self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]
+                total = total + calTotal[quantitly[z]]
             print(f"Total = {total} THB\nTotal with 10% discount = {total*0.9} THB")
+            
+            print(self.recives)
+            print(calTotal)
+            
         else:
             print("Your orders are")
             for z in range(0,len(quantitly)):
@@ -56,12 +72,31 @@ class Calculator:
                     if self.recives[quantitly[z]]%2 == 0:
                         print("- " + self.product[quantitly[z]]["Set"] + "\tQauntity "+ str(self.recives[quantitly[z]]) + "\tPrice "+ str(self.product[quantitly[z]]["Price"])+"\tTotal "\
                         +str(0.95*self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]))
+                        calTotal.update({quantitly[z]:0.95*self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]})
+                        # calTotal[quantitly[z]] = 0.95*self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]
                     else:
-                        print("- " + self.product[quantitly[z]]["Set"] + "\tQauntity "+ str(self.recives[quantitly[z]]) + "\tPrice "+ str(self.product[quantitly[z]]["Price"])+"\tTotal "\
-                        +str((0.95 * (self.recives[quantitly[z]]-1)*self.product[quantitly[z]]["Price"]) + self.product[quantitly[z]]["Price"]))
+                        if self.recives[quantitly[z]] > 1 :
+                            print("- " + self.product[quantitly[z]]["Set"] + "\tQauntity "+ str(self.recives[quantitly[z]]) + "\tPrice "+ str(self.product[quantitly[z]]["Price"])+"\tTotal "\
+                            +str((0.95*(self.recives[quantitly[z]]-1)*self.product[quantitly[z]]["Price"])+self.product[quantitly[z]]["Price"]))
+                        else:
+                            print("- " + self.product[quantitly[z]]["Set"] + "\tQauntity "+ str(self.recives[quantitly[z]]) + "\tPrice "+ str(self.product[quantitly[z]]["Price"])+"\tTotal "\
+                            +str(((self.recives[quantitly[z]])*self.product[quantitly[z]]["Price"])))
+                        
+                        calTotal.update({quantitly[z]:(0.95*(self.recives[quantitly[z]]-1)*self.product[quantitly[z]]["Price"])+self.product[quantitly[z]]["Price"]})
+                        # calTotal[quantitly[z]] = (0.95*(self.recives[quantitly[z]]-1)*self.product[quantitly[z]]["Price"])+self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]
                 else:
                     print("- " + self.product[quantitly[z]]["Set"] + "\tQauntity "+ str(self.recives[quantitly[z]]) + "\tPrice "+ str(self.product[quantitly[z]]["Price"])+"\tTotal "\
-                        +str(self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]))
+                    +str(self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]))
+                    calTotal.update({quantitly[z]:self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]})
+                    # calTotal[quantitly[z]] = self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]
+                    
+            total = 0
+            for z in range(0,len(quantitly)):
+                total = total + calTotal[quantitly[z]]
+            print(f"Total = {total} THB")
+            
+            print(self.recives)
+            print(calTotal)
 
 
 
