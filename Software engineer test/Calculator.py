@@ -37,7 +37,11 @@ class Calculator:
                 # print(f"{self.product[quantitly[z]]["Set"]}\t Quantity {self.recives[quantitly[z]]}\t Price {self.product[quantitly[z]]["Price"]}")
                 if quantitly[z] == (202 or 505 or 707):
                     if self.recives[quantitly[z]]%2 == 0:
-                        
+                        print("- " + self.product[quantitly[z]]["Set"] + "\tQauntity "+ str(self.recives[quantitly[z]]) + "\tPrice "+ str(self.product[quantitly[z]]["Price"])+"\tTotal "\
+                        +str(0.95*self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]))
+                    else:
+                        print("- " + self.product[quantitly[z]]["Set"] + "\tQauntity "+ str(self.recives[quantitly[z]]) + "\tPrice "+ str(self.product[quantitly[z]]["Price"])+"\tTotal "\
+                        +str(0.95*(self.recives[quantitly[z]]-1)*self.product[quantitly[z]]["Price"])+self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"])
                 else:
                     print("- " + self.product[quantitly[z]]["Set"] + "\tQauntity "+ str(self.recives[quantitly[z]]) + "\tPrice "+ str(self.product[quantitly[z]]["Price"])+"\tTotal "\
                         +str(self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]))
