@@ -1,0 +1,63 @@
+class Calculator:
+    def __init__(self, channel):
+        self.channel = channel
+        self.product = {}
+        self.recives = {}
+    
+    def addProduct(self, id, set, price):
+        self.product[id] = {"Set" : set, "Price" : price}
+        # print("Product added successfully.")
+
+    def showProduct(self):
+        keys = list(self.product)
+        for x in range(0,len(keys)):
+            print(f"ID {keys[x]}\t{self.product[keys[x]]}")
+        print("\nOrder doubles of Orange, Pink or Green sets will get a 5% discount for each bundles(not in total) !!!")
+
+    def order(self):
+        keys = list(self.product)   
+        while(True):
+            print("What set do you want to buy?\nENTER set ID ")
+            a = int(input())
+            for x in range(0,len(keys)):
+                if a == keys[x]:
+                    print("How many do you want?")
+                    b = int(input())
+                    self.recives[a]=b   
+            print("Do you want to add another set?\nyes or no")
+            if "no" == str(input()):
+                break
+        # print(self.recives)
+        quantitly = list(self.recives)
+        # print(quantitly)
+        print("Do you have a member card?\nIf you have a member card you will get 10% discount on total\nyes or no")
+        pair = 0
+        for y in range(0,len(quantitly)):
+            if quantitly[y] == (202 or 505 or 707):
+                pair = int(float(self.recives[quantitly[y]])/2)
+        if "yes" == str(input()):
+            print("Your order are")
+            for z in range(0,len(quantitly)):
+                # print(f"{self.product[quantitly[z]]["Set"]}\t Quantity {self.recives[quantitly[z]]}\t Price {self.product[quantitly[z]]["Price"]}")
+                print("- " + self.product[quantitly[z]]["Set"] + "\tQauntity "+ str(self.recives[quantitly[z]]) + "\tPrice "+ str(self.product[quantitly[z]]["Price"])+"\tTotal "\
+                    +str(self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]))
+            total = 0
+            for z in range(0,len(quantitly)):
+                total = total + self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]
+            print(f"Total = {total} THB\nTotal with 10% discount = {total*0.9} THB")
+        else:
+            print("Your order are")
+            for z in range(0,len(quantitly)):
+                # print(f"{self.product[quantitly[z]]["Set"]}\t Quantity {self.recives[quantitly[z]]}\t Price {self.product[quantitly[z]]["Price"]}")
+                print("- " + self.product[quantitly[z]]["Set"] + "\tQauntity "+ str(self.recives[quantitly[z]]) + "\tPrice "+ str(self.product[quantitly[z]]["Price"])+"\tTotal "\
+                    +str(self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]))
+            total = 0
+            for z in range(0,len(quantitly)):
+                total = total + self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]
+            print(f"Total = {total} THB")
+            
+
+
+
+
+
