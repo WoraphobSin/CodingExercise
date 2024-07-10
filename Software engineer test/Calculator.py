@@ -62,12 +62,6 @@ class Calculator:
                 else:
                     print("- " + self.product[quantitly[z]]["Set"] + "\tQauntity "+ str(self.recives[quantitly[z]]) + "\tPrice "+ str(self.product[quantitly[z]]["Price"])+"\tTotal "\
                         +str(self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]))
-                    
-            total = 0
-            for z in range(0,len(quantitly)):
-                total = total + self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]
-            print(f"Total = {total} THB")
-            
 
 
 

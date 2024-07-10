@@ -1,9 +1,5 @@
 from Calculator import *
 
-# a = 2.5
-# b = int(a)
-# print(b)
-
 #Create Calculator
 oCalculator1 = Calculator(1)
 
