@@ -22,7 +22,7 @@ class Calculator:
             for x in range(0,len(keys)):
                 if a == keys[x]:
                     print("How many do you want?")
-                    b = int(input())
+                    b = float(input())
                     self.recives[a]=b   
             print("Do you want to add another set?\nyes or no")
             if "no" == str(input()):
@@ -36,7 +36,8 @@ class Calculator:
             for z in range(0,len(quantitly)):
                 # print(f"{self.product[quantitly[z]]["Set"]}\t Quantity {self.recives[quantitly[z]]}\t Price {self.product[quantitly[z]]["Price"]}")
                 if quantitly[z] == (202 or 505 or 707):
-                    pass
+                    if self.recives[quantitly[z]]%2 == 0:
+                        
                 else:
                     print("- " + self.product[quantitly[z]]["Set"] + "\tQauntity "+ str(self.recives[quantitly[z]]) + "\tPrice "+ str(self.product[quantitly[z]]["Price"])+"\tTotal "\
                         +str(self.recives[quantitly[z]]*self.product[quantitly[z]]["Price"]))
