@@ -1,15 +1,18 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
+<link rel="stylesheet" href="{% static 'myfirst.css' %}">
 <body>
     {% for x in mymembers %}
-    <h1>{{x.firstname}} {{x.lastname}} {{forloop.counter}}</h1>
+    <h1>{{x.firstname}} {{x.lastname}}</h1>
         
     <ul>
         <li>
-            {{x.id}}. {{x.firstname}} {{x.lastname}} {{x.phone}} {{x.joined_date}}
+            {{x}}
+            {% comment %} {{x.id}}. {{x.firstname}} {{x.lastname}} {{x.phone}} {{x.joined_date}} {% endcomment %}
         </li>
     </ul>
     {%endfor%}
-{% comment %} <p>In view.py you can see what the fruits variable looks like.</p> {% endcomment %}
+<div>In view.py you can see what the variable looks like.</div>
 </body>
 </html>
