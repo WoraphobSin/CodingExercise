@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
 <body>
-    {% for x in fruits %}
-    <h1>{{x}}</h1>
+    {% for x in mymembers %}
+    <h1>{{x.firstname}} {{x.lastname}} {{forloop.counter}}</h1>
+        
+    <ul>
+        <li>
+            {{x.id}}. {{x.firstname}} {{x.lastname}} {{x.phone}} {{x.joined_date}}
+        </li>
+    </ul>
     {%endfor%}
-<p>In view.py you can see what the fruits variable looks like.</p>
+{% comment %} <p>In view.py you can see what the fruits variable looks like.</p> {% endcomment %}
 </body>
 </html>
