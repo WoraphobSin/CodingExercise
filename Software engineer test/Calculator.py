@@ -17,22 +17,18 @@ class Calculator:
     def order(self):
         keys = list(self.product)   
         while(True):
-            print("What set do you want to buy?\nENTER set ID ")
-            a = int(input())
+            a = int(input("What set do you want to buy?\nENTER set ID "))
             for x in range(0,len(keys)):
                 if a == keys[x]:
                     print("How many do you want?")
                     b = int(input())
                     self.recives[a]=b   
-            print("Do you want to add another set?\nyes or no?")
-            if "no" == str(input()):
+            if "no" == str(input("Do you want to add another set?\nyes or no?")):
                 break
         # print(self.recives)
         quantitly = list(self.recives)
-        calTotal = self.recives.copy()
-        # print(quantitly)
-        print("Do you have a member card?\nIf you have a member card you will get 10% discount on total !\nyes or no?")               
-        if "yes" == str(input()):
+        calTotal = self.recives.copy()               
+        if "yes" == str(input("Do you have a member card?\nIf you have a member card you will get 10% discount on total !\nyes or no?")):
             print("Your orders are")
             for z in range(0,len(quantitly)):
                 if quantitly[z] == 202 or quantitly[z] == 505 or quantitly[z] == 707:
