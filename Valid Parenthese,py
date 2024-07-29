@@ -1,0 +1,21 @@
+def checkBracket(value):
+    if('(' in value):
+        if(')' in value):
+            pass
+        elif(')' not in value):
+            return False
+    if('[' in value):
+        if(']' in value):
+            pass
+        elif(']' not in value):
+            return False
+    if('{' in value):
+        if('}' in value):
+            pass
+        elif('}' not in value):
+            print("Test")
+            return False
+    return True
+        
+s = "[{]"
+print(checkBracket(s))
