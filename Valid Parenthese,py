@@ -13,7 +13,7 @@ def checkBracket(value):
         if('}' in value):
             pass
         elif('}' not in value):
-            print("Test")
+            # print("Test")
             return False
     return True
         
